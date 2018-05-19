@@ -1,11 +1,21 @@
 ## express  
-####  初始化当前文件夹：`npm init`  
-####  安装express：`yarn add express`  
+初始化当前文件夹：
+``` shell
+npm init
+```  
+安装express：
+``` shell
+yarn add express
+```  
 ---
-### 想让数据库中数据表现在页面上，则需安装mysql插件
-####  安装mysql：`yarn add mysql` 
-###### 在server文件中引入mysql,然后操作如下
-#### (注意：本项目中没安装express，若下载后可自行安装执行)
+## 想让数据库中数据表现在页面上，则需安装mysql插件
+ 安装mysql：
+ ``` shell
+ yarn add mysql
+ ``` 
+###### (注意：本项目中没安装express，若下载后可自行安装执行)
+在server文件中引入mysql,然后操作如下
+
 
 1. 创建连接  
 ``` shell    

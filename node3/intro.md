@@ -1,0 +1,34 @@
+## 跨域问题:
+
+### 基本谁做服务器的让谁解决，甩锅给他，让后端解决。
+### 如果和后端关系实在不好，可以让自己的服务器代理解决。
+
+### 1、jsonp  
+***  
+#### 主要思想：动态创建script标签。
+#### 限制：必须返回一个函数调用才可以！也就是说只有jsonp的接口才能通过jsonp去调用（参考百度）
+`let oScript = document.createElement('script');`  
+`let url = 'http://localhost:8060/api/productData';`  
+`oScript.src = 'url?cb=callback';`  
+
+`function callback(data) {`  
+    `console.log(data);`  
+    `var str = '';`  
+    `data.forEach((ele,index)=>{`  
+        `str += `<li>${ele.name}</li>``  
+    `});`  
+    `oList.innerHTML = str;`  
+`}`  
+
+### 2、后端  
+***  
+#### 在后端代码里写以下内容,(nodejs)
+#### res.setHeader('Access-Control-Allow-Origin','*');
+
+### 3、自己的服务器端
+*** 
+#### ajax受同源策略限制，但是服务器端不受其限制。
+*  请求跨域网址(url1)：`http://m.loho88.com/search/?e=222&page=1`  
+*  转变后网址(url2)：`http://localhost:8040/loho88/search/?e=222&page=1`  
+*  在自己的nodejs服务器中判断网址如果为url2时,通过http.get(url2,(response)=>{})
+

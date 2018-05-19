@@ -16,6 +16,4 @@ let data = fs.readFileSync(url)
 fs.writeFile(url,写入的内容,(err)=>{})
 ```
 ##  路由
-``` shell
 实质上是响应用户请求，给用户想要的内容(解析url输出相应内容)
-```

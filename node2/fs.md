@@ -1,13 +1,13 @@
 ## 文件读写(fs)  
 
 ### 读文件
-#### 异步 
+ 异步 
 ``` shell 
 fs.readFile(url,(err,data)=>{
     回调
 })
 ```
-#### 同步  
+ 同步  
 ``` shell
 let data = fs.readFileSync(url)
 ```

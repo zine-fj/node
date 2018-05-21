@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <script src="https://cdn.bootcss.com/jquery/1.11.1-rc2/jquery.min.js"></script>
+    
+</head>
+<body>
+    <h1>index</h1>
+    <div id="list"></div>
+    <script>
+        $.get('/api/getProductData',(data)=>{
+            console.log(data);
+            data.forEach((ele,index)=>{
+                var oLi = `<p>名称:${ele.p_name}</p><p>数量:${ele.price}</p><p>总数:${ele.total_number}</p>`
+                $('#list').append(oLi)
+            })
+        })
+    </script>
+</body>
+</html>

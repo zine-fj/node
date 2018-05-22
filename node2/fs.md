@@ -17,3 +17,9 @@ fs.writeFile(url,写入的内容,(err)=>{})
 ```
 ##  路由
 实质上是响应用户请求，给用户想要的内容(解析url输出相应内容)
+
+
+## Chrome页面的json文件乱码
+``` shell
+res.setHeader('content-type','text/heml;charset=UTF-8');
+```

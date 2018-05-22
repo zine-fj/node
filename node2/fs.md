@@ -23,3 +23,4 @@ fs.writeFile(url,写入的内容,(err)=>{})
 ``` shell
 res.setHeader('content-type','text/heml;charset=UTF-8');
 ```
+加上之后会导致fs读取文件失败，会读取整个HTML页面

@@ -6,10 +6,11 @@ Nodejs使用事件驱动，非阻塞I/O模型而得以轻量和高效，非常�
 
 npm 是nodejs的包管理工具，是世界上最大的开放源代码的生态系统  
 
-安装 supervisor，提高node的运行效率，不用每次修改都重启服务（必须全局安装）  
+安装 supervisor，提高node的运行效率，不用每次修改都重启服务（必须全局安装）
+``` shell
 cnpm -g install supervisor  
 node server => supervisor server  
-
+```
 前后端交互必须通过字符串  
 
 模块化：把相同功能代码写在一起  
@@ -22,7 +23,7 @@ commonjs:同步的，没有回调。
 同步在浏览器上是没发用的，但是在服务器上是可以的。  
 服务器端的模块规范都是同步的（因为很快就加载好了）  
 
-nodejs模块加载（遵循commonjs规范）  
+nodejs模块加载（遵循commonjs规范）
 
 
 

@@ -1,21 +1,21 @@
 ## mongdb(没有数据库事务)
 1. 介绍
 MongoDb是一个基于分布式文件存储的数据库。由C++语言编写，语法类似js。适合大数据存储，旨在为WEB应用提供可扩展的高效性能数据存储解决方案。  
-1. 集中式文件存储数据库：将数据都存储在一个地方(100W的数据库)，随着数据量的增加，需要不断更换数据库；且需要做备份，防止数据库出错造成的影响。
-2. 分布式文件存储数据库：将数据分散存储在不同地方(10W的数据库)，分别管理，方便维护。
+1、 集中式文件存储数据库：将数据都存储在一个地方(100W的数据库)，随着数据量的增加，需要不断更换数据库；且需要做备份，防止数据库出错造成的影响。  
+2、分布式文件存储数据库：将数据分散存储在不同地方(10W的数据库)，分别管理，方便维护。  
 特点：高性能、容易不熟、容易使用，存储数据非常方便。  
 对mongodb创建一个数据库存储的文件夹，要求在系统的目录下创建一个文件夹data，在data文件夹下创建一个db。
 2. 术语介绍
-  1. SQL:    database(数据库)、table(表)、         row(行)、      column(字段(列))、index(索引)、 primary key(主键)
-  2. mongoDB:database(数据库)、collection(集合{})、document(文档)、fieled(域)、      index(索引)、primary key(主键，_id作为主键)
+  1、SQL:    database(数据库)、table(表)、         row(行)、      column(字段(列))、index(索引)、 primary key(主键)  
+  2、mongoDB:database(数据库)、collection(集合{})、document(文档)、fieled(域)、      index(索引)、primary key(主键，_id作为主键)  
 
 3. 使用
-  1. 安装之后(一步步安装即可)。
-  2. 在D盘(其他盘也可以)根目录下创建文件夹data，在data文件夹下创建db文件夹
-  3. 安装之后在bin文件夹中cmd，并执行mongod.exe --dbpath "D:\data\db"，此时为运行状态，不能关闭。  
-  注：一种快捷方式执行3操作：先在桌面新建1.txt文件，在里面输入cd C:\ProgramFiles\MongoDB\Server\3.6\bin  
-  mongod --dbpath "E:\data\db"，然后将其保存为1.bat文件，点击后即可进入运行状态。
-  4. 在bin文件中cmd，执行mongo.exe，进入mongodb控制台。
+  1、 安装之后(一步步安装即可)。  
+  2、 在D盘(其他盘也可以)根目录下创建文件夹data，在data文件夹下创建db文件夹。    
+  3、 安装之后在bin文件夹中cmd，并执行mongod.exe --dbpath "D:\data\db"，此时为运行状态，不能关闭。    
+  注：一种快捷方式执行3操作：先在桌面新建1.txt文件，在里面输入cd C:\ProgramFiles\MongoDB\Server\3.6\bin    
+  mongod --dbpath "E:\data\db"，然后将其保存为1.bat文件，点击后即可进入运行状态。  
+  4、 在bin文件中cmd，执行mongo.exe，进入mongodb控制台。
 
 #### mongdb命令行操作
 1. 显示数据库

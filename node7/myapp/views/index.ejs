@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include header %>
+    <div class="content">
+        <% if(typeof username) {  %>
+          <p>
+              亲爱的用户：<strong><%= username %></strong>
+          </p>
+          <p>Welcome to my Show</p>
+        <% } %>
+      
+    </div>
+  </body>
+</html>

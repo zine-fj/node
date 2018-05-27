@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include header %>
+    <div class="content">
+        <p>商品列表</p>
+        <% productData.forEach((val,index)=>{ %>
+            <p>商品名：<%= val.p_name %></p>
+        <% }) %>
+    </div>
+    
+  </body>
+</html>

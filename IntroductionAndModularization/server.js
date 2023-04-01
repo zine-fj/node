@@ -4,6 +4,9 @@
 // const http = require('http'); // commonjs规范
 
 // http.createServer((req, res) => {
+
+//   res.writeHead("200", {'Content-Type': 'text/html; charset-utf-8'})
+
 //   res.write('hello node111');
 //   res.end(); 
 // }).listen(8060)
@@ -17,6 +20,8 @@ const myPro = new Product();
 console.log(myPro.getListData())
 
 http.createServer((req, res) => {
+
+  res.writeHead("200", {'Content-Type': 'text/html; charset-utf-8'})
   // 输出必须是一个字符串  
   let strData = JSON.stringify(myPro.getListData())
   res.write(strData);

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>列表</title>
+  </head>
+  <body>
+    <h1>列表</h1>
+    <ul id="list">
+      <li></li>
+    </ul>
+    <script>
+      let oList = document.getElementById("list");
+
+      // const url = 'http://localhost:8060/api/product'
+      // fetch(url)
+      //   .then((res) => res.json())
+      //   .then((res) => {
+      //     console.log(res);
+      //     let oLi = "";
+
+      //     res.forEach((item, index) => {
+      //       oLi += `<li>${item.name}</li>`;
+      //     });
+
+      //     oList.innerHTML = oLi;
+      //   });
+
+      // 端口后面的地址可以随便写，只是为了服务端判断，然后服务端根据判断，去进行允许 原网址跨域
+      const url = "http://localhost:8060/getLoho88Data";
+      fetch(url)
+        .then((res) => res.json())
+        .then((res) => {
+          console.log("res: ", res);
+
+          let list = res.result.goodsType.goodsTypeList;
+          let oLi = "";
+
+          list.forEach((item, index) => {
+            oLi += `<li>${item.typeName}</li>`;
+          });
+
+          oList.innerHTML = oLi;
+        });
+    </script>
+  </body>
+</html>

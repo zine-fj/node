@@ -8,5 +8,14 @@
 </head>
 <body>
   <h1>首页</h1>
+  <script>
+    fetch('/api/getUser').then(res => res.json()).then(res => {
+      console.log('用户数据：', res)
+    })
+
+    fetch('/api/getProduct').then(res => res.json()).then(res => {
+      console.log('产品数据：', res)
+    })
+  </script>
 </body>
 </html>

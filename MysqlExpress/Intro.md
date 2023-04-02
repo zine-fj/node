@@ -30,7 +30,7 @@ app.listen(8050);
 npm i mysql
 ```
 ### 实现步骤
-
+在 `app.get()` 中写以下代码
 1. 创建链接
 ```js
 let connection = mysql.createConnection({
@@ -69,9 +69,38 @@ connection.end(() => {
   console.log('连接数据库 结束')
 })
 ```
+### 连接池
+由于以上操作会比较频繁，所以使用连接池更加方便
+```js
+// 创建连接池
+const pool = mysql.createPool({
+  port: "3306",
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "myselfsql",
+  connectionLimit: 10, // 最大连接数量
+});
 
+app.get("/api/getUsers", (req, res) => {
+  // 在连接池里 拿 一个连接来使用
+  pool.getConnection((err, connection) => {
+    if (err) {
+      console.log("err: ", err);
+    }
 
+    connection.query("select * from user", (err, result) => {
+      if (err) {
+        console.log("err-1: ", err);
+      }
 
+      res.send(result);
+      // 使用完以后，释放连接
+      connection.release();
+    });
+  });
+});
+```
 
 ## phpstudy
 phpStudy是一个PHP调试环境的程序集成包。该程序包集成最新的Apache+PHP+MySQL+phpMyAdmin+ZendOptimizer，一次性安装，无须配置即可使用，是非常方便、好用的PHP调试环境。
@@ -153,3 +182,13 @@ select * from user where uid=1;
 // 多表关联查询
 select * from cart,product where uid=1 and product.pid=cart.pid;
 ```
+
+#### 其他
+1. 如果插入数据有中文显示不出来时，可在命令行添加以下操作
+```js
+set character_set_client=gbk;
+
+set character_set_results=gbk;
+```
+
+2. 前后端不分离是 动态页面前后端代码混在一起；分离是 前后端代码各写各的。

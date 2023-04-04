@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>聊天室</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <p class="title">聊天室</p>
+      <ul class="list" id="list">
+        <li class="item">
+          <img src="img/1.jpg" alt="" />
+          <p class="info">哈哈哈</p>
+        </li>
+        <li class="item">
+          <img src="img/2.jpg" alt="" />
+          <p class="info">呵呵呵</p>
+        </li>
+        <li class="item self">
+          <img src="img/self.jpg" alt="" />
+          <p class="info">嘿嘿嘿</p>
+        </li>
+      </ul>
+      <div class="send-text">
+        <input type="text" id="text" />
+        <span class="button" id="send">发送</span>
+        <span class="button" id="name">修改昵称</span>
+      </div>
+    </div>
+    <script src="js/socket.io.js"></script>
+    <script>
+      let socket = io.connect("http://192.168.199.135:8020");
+
+      let sendBtn = $("#send");
+      let oList = $("#list");
+      var nameBtn = $("#name");
+      let oText = $("#text");
+
+      // 发送消息
+      sendBtn.click(function () {
+        let msg = oText.val();
+        oText.val("").focus();
+        if (msg.length) {
+          socket.send(msg);
+          let oLi = `<li class="item self">
+                            <img src="img/self.jpg" alt="">
+                            <p class="info">${msg}</p>
+                        </li>`;
+          oList.append(oLi);
+          oList.scrollTop(999);
+        } else {
+          console.log("请输入聊天内容");
+        }
+      });
+      // 客户端 接收 服务端的消息
+      socket.on("message", function (data) {
+        console.log("接收服务端发的消息：", data);
+        var oLi = `<li class="item">
+                            <img src="img/1.jpg" alt="">
+                            <p class="info">${data.userInfo.name}: ${data.msg}</p>
+                        </li>`;
+        oList.append(oLi);
+        oList.scrollTop(99999);
+      });
+
+      // 修改昵称
+      nameBtn.click(function () {
+        let newName = window.prompt();
+        if (newName) {
+          // 发起改的请求
+          socket.emit("changeName", newName);
+        }
+      });
+
+      // event.emit('changeName','新名'); // 发射，触发
+      // trigger jq的主动触发事件方法
+      // event.on('changeName',function(newName) {
+      //     console.log(newName)
+      // }); // 监听
+    </script>
+  </body>
+</html>

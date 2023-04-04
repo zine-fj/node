@@ -27,3 +27,6 @@ express生成器，ejs语法
 
 ### 6. LoginRegin
 登录和注册，session
+
+### 7. socket
+即时通信、多人在线

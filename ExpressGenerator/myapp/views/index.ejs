@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <% include header %>
+
+    <p><%- htmlStr %></p>
+
+    <% for(let i=0; i < indexData.length; i++) { %>
+      <p data-id='<%= indexData[i].pid %>' onclick='fn(<%= indexData[i].pid %>)'>商品名：<%= indexData[i].p_name %></p>
+    <% } %>
+
+    <!-- <ul>
+      <% for(let i = 0; i < indexData.length; i++){ %>
+        <li>商品名：<%= indexData[i].p_name %></li>
+      <% } %>
+    </ul> -->
+
+    <script>
+      function fn(id) {
+        console.log(id);
+      }
+    </script>
+  </body>
+</html>

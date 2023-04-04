@@ -24,3 +24,6 @@ express，数据库mysql的基本操作，以及与express一起的操作
 
 ### 5. ExpressGenerator
 express生成器，ejs语法
+
+### 6. LoginRegin
+登录和注册，session

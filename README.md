@@ -4,10 +4,10 @@
 ## 包含内容
 1. nodejs
 1. mysql
-1. mongodb
-1. node的脚手架 express
-1. 项目实战
+1. node的脚手架 express 及其生成器
+1. 登录注册功能
 1. socket（即时通信、多人在线）
+1. mongodb
 
 ## 对应文件
 ### 1. IntroductionAndModularization
@@ -30,3 +30,6 @@ express生成器，ejs语法
 
 ### 7. socket
 即时通信、多人在线
+
+### 8. Mongodb
+Mongodb（没学）

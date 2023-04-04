@@ -9,6 +9,7 @@
 <body>
   <h1>首页</h1>
   <script>
+    // 运行 server-pool-modularity 时 下面请求有数据
     fetch('/api/getUser').then(res => res.json()).then(res => {
       console.log('用户数据：', res)
     })

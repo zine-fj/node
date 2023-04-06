@@ -26,7 +26,13 @@ res.setHeader('content-type','text/heml;charset=UTF-8');
 路由的实质：响应用户请求，给用户想要的内容（解析 url 输出相应内容）
 
 ## url
-
+```js
+ // 格式化url字符串
+const urlObj = url.parse(req.url, true);
+if (urlObj.pathname === "/views/login.html") {
+  // todo
+}
+```
 ### get
 
 1. 引入 node 提供的 url 对象
@@ -39,6 +45,8 @@ let url = require("url");
 
 ```js
 let urlObj = url.parse(req.url, true);
+
+let getData = urlObj.query;
 ```
 
 ### post

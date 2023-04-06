@@ -32,4 +32,4 @@ express生成器，ejs语法
 即时通信、多人在线
 
 ### 8. Mongodb
-Mongodb（没学）
+Mongodb（暂时没学）
